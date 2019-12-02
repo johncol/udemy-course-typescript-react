@@ -7,6 +7,7 @@ import { urls } from './../../constants/urls';
 
 export const fetchTodos = () => {
   return async (dispatch: Dispatch<FetchTodosAction>) => {
+    await new Promise(resolve => setTimeout(resolve, 2000));
     const response: AxiosResponse<Todo[]> = await axios.get<Todo[]>(urls.todos);
 
     return dispatch({
