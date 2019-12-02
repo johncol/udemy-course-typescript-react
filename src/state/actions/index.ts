@@ -5,7 +5,7 @@ import { ActionType } from './types';
 import { Todo } from './../../models/todo';
 import { urls } from '../../constants/urls';
 
-interface FetchTodosAction {
+export interface FetchTodosAction {
   type: ActionType.FETCH_TODOS;
   payload: Todo[];
 }
