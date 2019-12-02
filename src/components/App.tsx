@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import { Todo } from './../models/todo';
 import { StoreState } from './../state/reducers';
-import { fetchTodos } from './../state/actions';
+import { fetchTodos, deleteTodo } from './../state/actions';
 import './app.css';
 
 interface PropsState {
@@ -12,6 +12,7 @@ interface PropsState {
 
 interface PropsActions {
   fetchTodos: () => void;
+  deleteTodo: (todo: Todo) => void;
 }
 
 interface Props extends PropsState, PropsActions {}
@@ -29,7 +30,9 @@ class AppComponent extends React.Component<Props, {}> {
             return (
               <li key={todo.id} className="todos__item">
                 <span className="todos__item-title">{todo.title}</span>
-                <button className="todos__item-btn-delete">X</button>
+                <button className="todos__item-btn-delete" onClick={() => this.props.deleteTodo(todo)}>
+                  X
+                </button>
               </li>
             );
           })}
@@ -43,6 +46,6 @@ const stateToProps = (state: StoreState): PropsState => {
   return { todos: state.todos };
 };
 
-const actions: PropsActions = { fetchTodos };
+const actions: PropsActions = { fetchTodos, deleteTodo };
 
 export const App = connect(stateToProps, actions)(AppComponent);
