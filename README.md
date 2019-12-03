@@ -1,3 +1,7 @@
+# Udemy Typescript and React/Redux
+
+Sample project to showcase how to use react and redux with typescript.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
